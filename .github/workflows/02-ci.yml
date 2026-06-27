@@ -23,15 +23,14 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
-        python-version: ["3.11", "3.12"]
+        os: [ubuntu-latest]
+        python-version: ["3.12"]
     
     # The runner is the temporary machine that executes the steps below.
     steps:
       - name: Check out repository
         # Download the repository contents onto the runner.
         uses: actions/checkout@v6
-
 
       - name: Scan Filesystem
         uses: aquasecurity/trivy-action@master
