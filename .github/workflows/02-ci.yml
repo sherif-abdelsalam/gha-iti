@@ -20,13 +20,13 @@ env:
 jobs:
   run-tests:
 
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
         python-version: ["3.11", "3.12"]
     
     # The runner is the temporary machine that executes the steps below.
-    runs-on: ${{ matrix.os }}
     steps:
       - name: Check out repository
         # Download the repository contents onto the runner.
