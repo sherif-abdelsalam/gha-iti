@@ -31,6 +31,20 @@ jobs:
       - name: Check out repository
         # Download the repository contents onto the runner.
         uses: actions/checkout@v6
+
+
+      - name: Scan Filesystem
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+      
+
+      - name: Scan Dockerfile
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'config'
+          scan-ref: 'Dockerfile'
       
       - name: Validate repo
         run: ls -la
