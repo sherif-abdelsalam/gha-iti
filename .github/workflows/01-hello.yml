@@ -1,7 +1,6 @@
 # This first workflow is intentionally tiny.
 # It helps students see what a GitHub Actions run looks like.
 name: 01-Hello-Workflow
-
 on:
   # Run automatically when this workflow file changes.
   pull_request:
@@ -23,4 +22,3 @@ jobs:
       - name: Say hello
         # This single step is enough to show a full workflow run.
         run: echo "Hello from GitHub Actions and from Sherif Abdel-Salam!"
-
