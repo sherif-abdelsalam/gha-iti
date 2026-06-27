@@ -5,6 +5,8 @@ name: 01-Hello-Workflow
 on:
   # Run automatically when this workflow file changes.
   pull_request:
+    types: 
+      - opened
     branches: 
       - main
     paths:
