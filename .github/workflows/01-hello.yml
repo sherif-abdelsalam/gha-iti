@@ -5,7 +5,7 @@ on:
   # Run automatically when this workflow file changes.
   pull_request:
     types: 
-      - opened
+      - closed
     branches: 
       - main
     paths:
@@ -19,6 +19,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Run only if PR was MERGED
+        if: github.event.pull_request.merged == true
+        run: echo "PR was successfully merged!"
+
       - name: Say hello
         # This single step is enough to show a full workflow run.
         run: echo "Hello from GitHub Actions and from Sherif Abdel-Salam!"
