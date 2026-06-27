@@ -12,7 +12,7 @@ on:
   # Allow a safe manual run before students trigger it with a code change.
   workflow_dispatch:
   schedule:
-    - cron: '8 9 * * *'
+    - cron: '15 9 * * *'
 
 jobs:
   run-tests:
