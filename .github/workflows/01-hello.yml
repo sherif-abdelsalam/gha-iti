@@ -1,6 +1,6 @@
 # This first workflow is intentionally tiny.
 # It helps students see what a GitHub Actions run looks like.
-name: 01 Hello Workflow
+name: 01-Hello-Workflow
 
 on:
   # Run automatically when this workflow file changes.
@@ -18,4 +18,5 @@ jobs:
     steps:
       - name: Say hello
         # This single step is enough to show a full workflow run.
-        run: echo "Hello from GitHub Actions"
+        run: echo "Hello from GitHub Actions and from Sherif Abdel-Salam!"
+
