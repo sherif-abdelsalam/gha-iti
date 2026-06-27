@@ -23,6 +23,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+
         os: [ubuntu-latest]
         python-version: ["3.12"]
     
@@ -56,6 +57,12 @@ jobs:
           
       - name: Validate Python version
         run: python --version
+
+      - name: Install Ruff
+        run: pip install ruff
+
+      - name: Run Lint
+        run: ruff check .
 
       - name: Current runner time
         run: date
