@@ -101,7 +101,7 @@ jobs:
           printf 'IMAGE_REFERENCE=%s\n' "${IMAGE_REFERENCE}" >> "${IMAGE_METADATA}"
 
       - name: Scan image tar artifact
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@master
         with:
           input: "${{ env.IMAGE_TAR }}"
           format: table
