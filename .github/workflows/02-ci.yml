@@ -11,8 +11,8 @@ on:
       - ".github/workflows/02-ci.yml"
   # Allow a safe manual run before students trigger it with a code change.
   workflow_dispatch:
-  schedule:
-    - cron: '15 9 * * *'
+  # schedule:
+  #   - cron: '15 9 * * *'
 
 env:
   PYTHON_VERSION: ${{secrets.PYTHON_VERSION}}
@@ -109,7 +109,6 @@ jobs:
           severity: 'HIGH,CRITICAL'
 
       - name: Upload build artifact
-        # Store the packaged output so a later workflow can use the exact same package.
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.ARTIFACT_NAME }}
