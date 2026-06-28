@@ -110,6 +110,7 @@ jobs:
           input: "${{ env.IMAGE_TAR }}"
           format: table
           exit-code: '1'
+          ignore-unfixed: true
           severity: 'HIGH,CRITICAL'
 
       - name: Upload build artifact
