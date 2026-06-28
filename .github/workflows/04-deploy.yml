@@ -3,6 +3,7 @@
 name: 04-Deploy Workflow
 
 on:
+  workflow_dispatch:
   workflow_run:
     # Listen for the build workflow by name.
     workflows: ["03 Build Artifact Workflow"]
@@ -68,6 +69,10 @@ jobs:
             -p "${APP_PORT}:8000" \
             "${{ steps.image-metadata.outputs.image_reference }}"
 
+
+      - name: Show running containers
+        run: docker ps
+
       - name: Smoke test deployed app
         # Retry a few times because app startup can take a moment.
         run: |
@@ -80,6 +85,10 @@ jobs:
           done
           echo "App did not become ready in time."
           exit 1
+
+      - name: Print /health response
+        run: |
+          curl --silent "http://127.0.0.1:${APP_PORT}/health"
 
       - name: Stop container
         if: always()
