@@ -13,9 +13,14 @@ on:
   workflow_dispatch:
   # schedule:
   #   - cron: '15 9 * * *'
-
+  
 env:
   PYTHON_VERSION: ${{secrets.PYTHON_VERSION}}
+  IMAGE_NAME: tiny-health-app
+  IMAGE_TAR: tiny-health-app.tar
+  IMAGE_METADATA: image-metadata.env
+  ARTIFACT_NAME: tiny-health-app-image
+
 
 jobs:
   run-tests:
