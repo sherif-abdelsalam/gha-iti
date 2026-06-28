@@ -15,7 +15,6 @@ on:
   #   - cron: '15 9 * * *'
   
 env:
-  PYTHON_VERSION: ${{secrets.PYTHON_VERSION}}
   IMAGE_NAME: tiny-health-app
   IMAGE_TAR: tiny-health-app.tar
   IMAGE_METADATA: image-metadata.env
@@ -106,7 +105,7 @@ jobs:
           printf 'IMAGE_REFERENCE=%s\n' "${IMAGE_REFERENCE}" >> "${IMAGE_METADATA}"
 
       - name: Scan image tar artifact
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           input: "${{ env.IMAGE_TAR }}"
           format: table
